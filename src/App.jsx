@@ -1,63 +1,148 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Education from "./components/Education";
 import Projects from "./components/Projects";
 import Programming from "./components/Prgramming";
 import Work from "./components/Work";
+import Testimonials from "./components/Testimonials";
+import Typed from "typed.js";
+export default function App() {
+  const [education, seteducation] = useState(true);
+  const [workhistory, setworkshitory] = useState(false);
+  const [programmings, setprogrammings] = useState(false);
+  const [projects, setprojects] = useState(false);
+  const [opennav, setopennav] = useState(false);
 
-const App = () => {
-  const [education, setEducation] = useState(false);
-  const [workHistory, setWorkHistory] = useState(false);
-  const [programming, setProgramming] = useState(true);
-  const [projects, setProjects] = useState(false);
+  useEffect(() => {
+    const typed = new Typed(el.current, {
+      strings: [
+        "Enthusiastic Dev 😎 ",
+        "Front End Developer 💻 ",
+        "React Developer 🚧",
+      ],
+      startDelay: 0,
+      typeSpeed: 80,
+      backSpeed: 20,
+      backDelay: 100,
+      smartBackspace: true,
+      loop: true,
+      showCursor: false,
+      autoInsertCss: true,
+    });
 
+    return () => {
+      typed.destroy();
+    };
+  }, []);
+  const el = useRef(null);
   function SetAllFalse() {
-    setEducation(false);
-    setProgramming(false);
-    setWorkHistory(false);
-    setProjects(false);
+    seteducation(false);
+    setworkshitory(false);
+    setprogrammings(false);
+    setprojects(false);
   }
+
   function ChangeState(function1, state1) {
     SetAllFalse();
     function1(state1);
   }
   return (
     <div className="App">
-      <div className="herosection py-5 px-10">
-        <nav className="d-flex flex-row justify-content-between">
-          <span className="brand-name">ROHAN PURI</span>
-          <div className="d-flex flex-row">
-            <span className="mx-4 nav-items">Home</span>
-            <span className="mx-4 nav-items">About me</span>
-            <span className="mx-4 nav-items">Resume</span>
-            <span className="mx-4 nav-items">Testimonials</span>
-            <span className="mx-4 nav-items">Contact me</span>
+      <div className="navbar-option-mobile bg-new ">
+        <div className="d-flex flex-row justify-content-between">
+          <span className="brand-name d-flex aling-items-center justify-content-center">
+            Rohan Puri{" "}
+          </span>
+          <div
+            className={
+              !opennav
+                ? "bars mx-2 transition-all "
+                : " transition-all open bars mx-2 "
+            }
+            style={{ background: opennav && "#02203c" }}
+            onClick={() => setopennav(!opennav)}
+          >
+            {" "}
           </div>
-        </nav>
+        </div>
+      </div>
+      <nav
+        className={
+          !opennav
+            ? " d-flex bg-new px-9 navbar-new py-5 flex-rows transition-all "
+            : " d-flex bg-new px-9 navbar-fixed-new py-5 flex-rows transition-all "
+        }
+      >
+        <span className="brand-name">ROHAN PURI</span>
+        <div className="d-flex flex-rows">
+          <a
+            href="#home"
+            className="mx-4 nav-items"
+            onClick={() => setopennav(false)}
+          >
+            Home{" "}
+          </a>
+          <a
+            href="#aboutme"
+            className="mx-4 nav-items"
+            onClick={() => setopennav(false)}
+          >
+            About me
+          </a>
+          <a
+            href="#resume"
+            className="mx-4 nav-items"
+            onClick={() => setopennav(false)}
+          >
+            Resume
+          </a>
+          <a
+            href="#testimonials"
+            className="mx-4 nav-items"
+            onClick={() => setopennav(false)}
+          >
+            Testimonial
+          </a>
+          <a
+            href="#contactme"
+            className="mx-4 nav-items"
+            onClick={() => setopennav(false)}
+          >
+            Contact me
+          </a>
+        </div>
+      </nav>
+      <div className="herosection px-10 py-2" id="home">
         <div className="herosection-2 row justify-content-center">
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="d-flex flex-column justify-content-center Im-text-section">
               <span className="Im-text">
                 Hello, I'm <span className="name-Im-text">Rohan Puri</span>
               </span>
-              <span className="Im-text-enthisiastic py-2">
-                Enthusiastic Dev 😎
-              </span>
+              <span
+                className="Im-text-enthusiastic py-2"
+                ref={el}
+                style={{ minHeight: "79px" }}
+              ></span>
               <span className="Im-text-subheading">
-                Knack of Building applications with Front End Operations
+                Knack of building applications with front end operations
               </span>
               <div className="d-flex flex-row justify-content-center mt-5">
-                <button className="btn-hire-me">Hire me</button>
-                <button className="btn-resume-me">Get Resume</button>
+                <a href="#contactme" className="btn-hire-me">
+                  Hire me
+                </a>
+                <a href="./resume.pdf" className="btn-resume-me">
+                  Get Resume
+                </a>
               </div>
             </div>
           </div>
           <div className="col-lg-6 col-md-6 col-sm-12">
-            <div className="d-flex justify-content-center custom-div-outer-img Anim">
+            <div className="d-flex justify-content-center Anim">
               <img
                 className="img-fluid custom-img"
+                alt="heroimage"
                 src="./rohan.jpg"
-                alt="hero-img"
               />
             </div>
           </div>
@@ -65,23 +150,29 @@ const App = () => {
         <br />
         <br />
         <br />
+        <br />
       </div>
-      <div className="about-me-section about-me-inside my-5">
+
+      <div className="about-me-section aboutme-inside my-5">
         <div className="d-flex flex-column">
-          <span className="about-me-text">About Me</span>
-          <span className="why-text-sub">Why to Choose me ?</span>
-          <div className="row justify-content-center shadow-lg my-5 py-4">
+          <span className="about-me-text" id="aboutme">
+            {" "}
+            About me
+          </span>
+          <span className="why-text-sub">Why Choose me?</span>
+          <div className="row justify-content-center shadow-lg my-5">
             <div className="col-lg-6 col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
               <dotlottie-player
                 src="https://lottie.host/1596e469-ec36-4df0-9c6b-26a08c492c2f/YdaBeBh0zN.json"
                 background="transparent"
                 speed="1"
-                style={{ width: "500px", height: "500px" }}
+                style={{ width: "300px", height: "300px" }}
                 loop
                 autoplay
               ></dotlottie-player>
             </div>
-            <div className="col-lg-6 col-md-6 col-sm-12 d-flex flex-column">
+
+            <div className="col-lg-6 col-md-6 col-sm-12 py-5 d-flex flex-column">
               <span className="some-text-about-me">
                 Front end developer with knowledge in React, redux , Tailwind
                 and Bootstrap , along with a knack of building applications with
@@ -89,7 +180,7 @@ const App = () => {
                 Computer Science willing to be an asset for an Organization
               </span>
               <span className="few-highlights">
-                <span className="few-text">Here are few Highlights</span>
+                <span className="few-text">Here are few highlights</span>
                 <span className="few-list">
                   <ul>
                     <li>Front end web development</li>
@@ -104,73 +195,108 @@ const App = () => {
           </div>
         </div>
       </div>
-      <div className="resume-outer-section d-flex flex-column">
+
+      <div className="resume-outer-section d-flex flex-column" id="resume">
         <span className="about-me-text">Resume</span>
         <span className="why-text-sub">My formal Bio Details</span>
         <div
-          className="resume-new-section d-flex"
+          className="resume-new-section row"
           style={{ width: "70%", marginInline: "auto" }}
         >
-          <div className="col-lg-4 col-md-4 col-sm-12 resume-left-section d-flex px-0 shadow-lg flex-row">
-            <div className="d-flex flex-column bg-new text-dark">
+          <div className="col-lg-4 col-md-4 col-sm-12 resume-left-section d-flex  px-0 shadow-lg flex-row">
+            <div className="d-flex flex-column bg-new text-white">
               <span className="icons-span">
-                <i class="fa-solid fa-graduation-cap"></i>
+                <i className="fas fa-user-graduate"></i>{" "}
               </span>
               <span className="icons-span">
-                <i class="fa-solid fa-briefcase"></i>
+                <i className="fas fa-briefcase"></i>{" "}
               </span>
               <span className="icons-span">
-                <i class="fa-solid fa-code"></i>
+                <i className="fas fa-code"></i>{" "}
               </span>
               <span className="icons-span">
-                <i class="fa-solid fa-list-check"></i>
+                <i className="fas fa-tasks"></i>{" "}
               </span>
             </div>
             <div className="d-flex flex-column">
               <span
-                className="resume-options-items"
+                className={
+                  education === false
+                    ? " resume-options-items"
+                    : " selected resume-options-items"
+                }
                 onClick={() => {
-                  ChangeState(setEducation, true);
+                  ChangeState(seteducation, true);
                 }}
               >
-                Education
+                Education{" "}
               </span>
               <span
-                className="resume-options-items"
+                className={
+                  workhistory === false
+                    ? " resume-options-items"
+                    : " selected resume-options-items"
+                }
                 onClick={() => {
-                  ChangeState(setWorkHistory, true);
+                  ChangeState(setworkshitory, true);
                 }}
               >
-                Work
+                Work{" "}
               </span>
               <span
-                className="resume-options-items"
+                className={
+                  programmings === false
+                    ? " resume-options-items"
+                    : " selected resume-options-items"
+                }
                 onClick={() => {
-                  ChangeState(setProgramming, true);
+                  ChangeState(setprogrammings, true);
                 }}
               >
-                Programming
+                Programming{" "}
               </span>
               <span
-                className="resume-options-items"
+                className={
+                  projects === false
+                    ? " resume-options-items"
+                    : " selected resume-options-items"
+                }
                 onClick={() => {
-                  ChangeState(setProjects, true);
+                  ChangeState(setprojects, true);
                 }}
               >
-                Projects
+                Projects{" "}
               </span>
             </div>
           </div>
-          <div className="col-lg-8 col-md-8 resume-right-section">
+          <div className="col-lg-8 col-md-8 col-sm-12 resume-right-section">
             {education === true && <Education />}
-            {workHistory === true && <Work />}
-            {programming === true && <Programming />}
+            {workhistory === true && <Work />}
+            {programmings === true && <Programming />}
             {projects === true && <Projects />}
           </div>
         </div>
       </div>
+
+      <div className="testmonails-part my-5" id="testimonials">
+        <div className="testimonials-inner-part d-flex flex-column">
+          <span className="about-me-text">Testimonials</span>
+          <span className="why-text-sub mb-5">
+            What my clients say about me{" "}
+          </span>
+          <Testimonials />
+        </div>
+      </div>
+
+      <div className="contact-me-part " id="contactme">
+        <div className="relative-bg"> </div>
+
+        <div className="contact-inner-part d-flex flex-column">
+          <span className="about-me-text">Contact Me</span>
+          <span className="why-text-sub mb-5">Lets Keep in Touch</span>
+          {/* <Contact /> */}
+        </div>
+      </div>
     </div>
   );
-};
-
-export default App;
+}

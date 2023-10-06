@@ -1,23 +1,26 @@
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Oswald:wght@400;500;700&family=Ubuntu:wght@400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Oswald:wght@500&family=Ubuntu:wght@300&display=swap");
 :root {
   --primary-app-color: #02203c;
   --secondary-app-color: #001528;
   --standout-color: #fffb00;
 }
+a {
+  text-decoration: none;
+}
 .App {
 }
 * {
-  margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  margin: 0;
 }
+
 .herosection {
   background: linear-gradient(
-    90deg,
+    -90deg,
     var(--primary-app-color),
     var(--secondary-app-color)
   );
-  clip-path: polygon(0 0, 100% 0, 100% 88%, 36% 100%, 0 88%);
+  clip-path: polygon(50% 0%, 100% 0, 100% 60%, 100% 90%, 25% 100%, 0 92%, 0 0);
 }
 
 .nav-items {
@@ -25,17 +28,9 @@
   color: #fff;
   font-size: 1.3rem;
   font-family: "Ubuntu";
-  border: 2px solid transparent;
-  transition: all 0.2s ease-in-out;
 }
-.nav-items:hover {
-  transition: all 0.6s ease-in-out;
-  border-top: 2px solid #fff;
-  border-bottom: 2px solid #fff;
-}
-
 .brand-name {
-  font-family: "oswald";
+  font-family: "Oswald";
   color: #fff;
   font-size: 2rem;
 }
@@ -44,8 +39,6 @@
 }
 .herosection-2 {
   padding-top: 60px;
-  padding-bottom: 90px;
-  /* need to change in queries */
 }
 .Im-text-section {
   padding-top: 52px;
@@ -61,15 +54,15 @@
   color: var(--standout-color);
   font-size: 28px;
 }
+.Im-text-enthusiastic {
+  font-family: sans-serif;
+  color: #fff;
+  font-size: 2.5rem;
+}
 .Im-text-subheading {
   font-family: "Open sans";
   color: #fff;
   font-size: 1.4rem;
-}
-.Im-text-enthisiastic {
-  font-family: sans-serif;
-  color: #fff;
-  font-size: 2.8rem;
 }
 .btn-hire-me {
   font-size: 1.3rem;
@@ -81,30 +74,30 @@
   padding: 5px 40px;
   border: 2px solid white;
   transition: all 0.3s ease-in-out;
-  animation: anim 1s ease-in-out infinite;
+  animation: Anim 1s ease-in-out infinite;
 }
-
 .btn-hire-me:hover {
   transform: translateY(-5px);
   background-color: var(--standout-color);
   color: #1c1c1c;
 }
+
 .btn-resume-me {
   font-size: 1.3rem;
   font-family: "Ubuntu";
-  color: #000;
-  background: paleturquoise;
+  color: #fff;
+  background: lightblue;
   border-radius: 25px;
   margin-inline: 12px;
   padding: 5px 40px;
-  border: 2px solid white;
+  border: 2px solid lightblue;
   transition: all 0.3s ease-in-out;
 }
 .btn-resume-me:hover {
   transform: translateY(-5px);
 }
 
-@keyframes anim {
+@keyframes Anim {
   0% {
     transform: scale(1);
   }
@@ -115,35 +108,23 @@
     transform: scale(1);
   }
 }
-.custom-div-outer-img {
-  padding-bottom: 10px;
-  border: 0.7px solid lightgray;
-  border-top: none;
-  width: 300px;
-  margin-left: 135px;
-  border-radius: 50%;
-  /* need to change in queries */
-}
-
 .custom-img {
   width: 300px;
   border-radius: 50%;
   object-fit: contain;
   display: flex;
   justify-content: center;
-  transition: all 1.2s ease-in-out;
-}
-.custom-img:hover {
-  transition: all 1.2s ease-in-out;
-  transform: scale(1.07);
+  padding-bottom: 12px;
+  border: 1px solid white;
 }
 
-/* ################## About Me Section ################### */
+/* about me section */
 .about-me-text {
   font-family: "Ubuntu";
   font-weight: 800;
   font-size: 3.5rem;
-  letter-spacing: 2.3px;
+  text-decoration: underline;
+  letter-spacing: 2px;
   text-align: center;
 }
 .why-text-sub {
@@ -154,27 +135,250 @@
   text-transform: capitalize;
   text-align: center;
 }
-.about-me-inside {
-  width: 75%;
+.aboutme-inside {
+  width: 70%;
   margin-inline: auto;
 }
-.some-text-about-me,
-.few-text {
+.some-text-about-me {
   font-family: "Ubuntu";
   font-weight: 600;
   font-size: 1.2rem;
   opacity: 0.8;
   text-align: justify;
 }
+
 .few-highlights {
   font-family: "Ubuntu";
   padding-block: 12px;
 }
 .few-text {
+  font-family: "Ubuntu";
+  font-weight: 900;
   font-size: 1.5rem;
-  margin-top: 40px;
+  /* opacity: 0.8; */
+  /* margin-top: 40px */
+  /* text-align: justify; */
 }
 .few-list {
   font-family: "Ubuntu";
   font-size: 1.2rem;
+}
+/* resume css */
+.resume-options-items {
+  width: 1%;
+  transition: all 0.3s ease-in-out;
+  padding-block: 24px;
+  padding-inline: 24px;
+  color: #000;
+  cursor: pointer;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.resume-options-items:hover {
+  width: 100%;
+  background: linear-gradient(
+    -90deg,
+    var(--primary-app-color),
+    var(--secondary-app-color)
+  );
+  color: #fff;
+}
+.icons-span {
+  margin-block: 24px;
+  margin-inline: 24px;
+}
+.selected {
+  background: linear-gradient(
+    -45deg,
+    var(--primary-app-color),
+    var(--secondary-app-color)
+  );
+  width: 100%;
+  color: #fff;
+}
+.bg-new {
+  background: linear-gradient(
+    -45deg,
+    var(--primary-app-color),
+    var(--secondary-app-color)
+  );
+}
+.resume-outer-section {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  background: var(--primary-app-color);
+  color: #fff;
+  clip-path: polygon(0 0, 100% 8%, 100% 50%, 100% 99%, 0 100%, 0% 50%);
+}
+.resume-new-section {
+  margin-top: 42px;
+  background: #fff;
+  box-shadow: 10px 10px 31px 2px #1c1c1c;
+}
+
+/* contact me part */
+.contact-me-part {
+  color: #fff;
+}
+
+.relative-bg {
+  clip-path: polygon(0 5%, 100% 14%, 100% 80%, 0 96%);
+
+  background: linear-gradient(
+    -90deg,
+    var(--primary-app-color),
+    var(--secondary-app-color)
+  );
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: -4;
+}
+.contact-inner-part {
+  padding-block: 118px;
+}
+.px-9 {
+  padding-inline: 90px;
+}
+.flex-rows {
+  flex-direction: row;
+  justify-content: space-between;
+}
+.navbar-option-mobile {
+  display: none;
+}
+/* the mobileview styling */
+
+@media all and (max-width: 786px) {
+  .navbar-option-mobile {
+    display: block;
+    width: 100vw;
+    height: 45px;
+    position: fixed;
+    z-index: 44;
+  }
+  .flex-rows {
+    flex-direction: column;
+    justify-content: start;
+  }
+  .navbar-new {
+    position: fixed;
+    height: 100vh;
+    width: 60vw;
+    z-index: 33;
+    transform: translateX(-700px);
+  }
+  .transition-all {
+    transition: all 0.3s ease-in-out;
+  }
+  .navbar-fixed-new {
+    position: fixed;
+    height: 100vh;
+    width: 60vw;
+    z-index: 33;
+    /* transform: translateX(-700px); */
+  }
+  .px-9 {
+    padding-inline: 0px;
+  }
+
+  .px-10 {
+    padding-inline: 10px;
+  }
+  .nav-items {
+    padding-block: 20px;
+  }
+  .brand-name {
+    font-size: 1.4rem;
+    padding-inline: 22px;
+    margin-top: 6px;
+  }
+  .bars {
+    height: 4px;
+    width: 40px;
+    background: #fff;
+    float: right;
+    z-index: 33;
+    transform: translateY(22px);
+    transition: all 0.3s ease-in-out;
+  }
+  .bars::before {
+    display: block;
+    position: relative;
+    top: 9px;
+    content: "";
+    color: #fff;
+    width: 40px;
+    height: 4px;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+  .bars::after {
+    display: block;
+    position: relative;
+    bottom: 12px;
+    content: "";
+    color: #fff;
+    width: 40px;
+    height: 4px;
+    background: #fff;
+    transition: all 0.3s ease-in-out;
+  }
+  .bars.open::before {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(-10px) rotate(-45deg);
+  }
+  .bars.open::after {
+    transition: all 0.3s ease-in-out;
+    transform: translateY(6px) rotate(45deg);
+  }
+
+  .Im-text {
+    font-size: 1.2rem;
+  }
+  .name-Im-text {
+    font-size: 23px;
+  }
+  .Im-text-enthusiastic {
+    font-size: 1.7rem;
+  }
+  .Im-text-subheading {
+    font-size: 1.2rem;
+  }
+  .btn-hire-me {
+    font-size: 1rem;
+    padding: 5px 8px;
+    margin-block: 24px;
+  }
+  .btn-resume-me {
+    font-size: 1rem;
+    padding: 5px 8px;
+    margin-block: 24px;
+  }
+  .custom-img {
+    border: none;
+  }
+  .about-me-text {
+    font-size: 2.7rem;
+  }
+  .why-text-sub {
+    font-size: 1rem;
+  }
+  .aboutme-inside {
+    width: 91%;
+  }
+  .lottie-1 {
+    width: 500px;
+  }
+  .university-name {
+    font-size: 1rem;
+  }
+  .university-degree {
+    font-size: 0.9rem;
+  }
+  .resume-new-section {
+    width: 100% !important;
+  }
+
+  /* your content here */
 }
