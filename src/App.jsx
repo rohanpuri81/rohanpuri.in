@@ -5,6 +5,7 @@ import Projects from "./components/Projects";
 import Programming from "./components/Prgramming";
 import Work from "./components/Work";
 import Testimonials from "./components/Testimonials";
+import Contact from "./components/Contact/Contact";
 import Typed from "typed.js";
 export default function App() {
   const [education, seteducation] = useState(true);
@@ -51,7 +52,8 @@ export default function App() {
       <div className="navbar-option-mobile bg-new ">
         <div className="d-flex flex-row justify-content-between">
           <span className="brand-name d-flex aling-items-center justify-content-center">
-            Rohan Puri{" "}
+            <img src="./logo22.png" style={{ height: "40px" }} alt="" />
+            Puri{" "}
           </span>
           <div
             className={
@@ -112,7 +114,7 @@ export default function App() {
           </a>
         </div>
       </nav>
-      <div className="herosection px-10 py-2" id="home">
+      <div className="herosection px-10 py-2 " id="home">
         <div className="herosection-2 row justify-content-center">
           <div className="col-lg-6 col-md-6 col-sm-12">
             <div className="d-flex flex-column justify-content-center Im-text-section">
@@ -131,7 +133,11 @@ export default function App() {
                 <a href="#contactme" className="btn-hire-me">
                   Hire me
                 </a>
-                <a href="./resume.pdf" className="btn-resume-me">
+                <a
+                  href="./resume.pdf"
+                  download="rohanPuri resume.pdf"
+                  className="btn-resume-me"
+                >
                   Get Resume
                 </a>
               </div>
@@ -159,7 +165,7 @@ export default function App() {
             {" "}
             About me
           </span>
-          <span className="why-text-sub">Why Choose me?</span>
+          <span className="why-text-sub">Why Should you Choose me?</span>
           <div className="row justify-content-center shadow-lg my-5">
             <div className="col-lg-6 col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
               <dotlottie-player
@@ -282,7 +288,7 @@ export default function App() {
         <div className="testimonials-inner-part d-flex flex-column">
           <span className="about-me-text">Testimonials</span>
           <span className="why-text-sub mb-5">
-            What my clients say about me{" "}
+            What Some Experienced Devlopers say about me{" "}
           </span>
           <Testimonials />
         </div>
@@ -294,7 +300,7 @@ export default function App() {
         <div className="contact-inner-part d-flex flex-column">
           <span className="about-me-text">Contact Me</span>
           <span className="why-text-sub mb-5">Lets Keep in Touch</span>
-          {/* <Contact /> */}
+          <Contact />
         </div>
       </div>
     </div>

@@ -2,28 +2,28 @@ import "./Testimonials.css";
 export default function Testimonials() {
   const testimonials = [
     {
-      name: "Abgishek Ravindram",
+      name: "Abhishek Ravindram",
       position: "Senior Developer, Walmart",
-      text: "This guy is incredibly awesome, I hired him and when He delivered, I honestly fell in love with the project. He is indeed a great guy.",
+      text: "This guy is incredibly awesome, I have confirmed his skills, He is indeed a great guy.",
     },
     {
       name: "Sumant Bhatia",
       position: "Manager, Digikull",
-      text: "This guy is incredibly awesome, I hired him and when He delivered, I honestly fell in love with the project. He is indeed a great guy.",
+      text: "His skills with react are really good , He is one of the good devlopers wwhom I met",
     },
     {
       name: "Nishikant Giri",
       position: "SDE-2, LTI",
-      text: "This guy is incredibly awesome, I hired him and when He delivered, I honestly fell in love with the project. He is indeed a great guy.",
+      text: "He was always interested in front end devlopment , now he is doing good",
     },
   ];
   return (
     <>
       <div>
         <div className="row mx-5">
-          {testimonials.map((value) => {
+          {testimonials.map((value, ind) => {
             return (
-              <div className="col-lg-4 col-sm-12 col-md-6 my-4">
+              <div key={ind} className="col-lg-4 col-sm-12 col-md-6 my-4">
                 <div className="card shadow testimonial-card d-flex flex-column">
                   <span className="description">{value.text} </span>
                   <span className="stars">⭐⭐⭐⭐⭐</span>

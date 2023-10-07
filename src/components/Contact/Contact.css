@@ -1,0 +1,40 @@
+.contact-me-card {
+  background-color: #1c1c1c;
+  width: 80%;
+  box-shadow: 10px 10px 63px 4px rgb(243, 240, 240);
+  height: 500px;
+  margin-inline: auto;
+  position: relative;
+  bottom: 3vh;
+}
+.get-in-touch {
+  color: #fff;
+  font-family: "Ubuntu";
+  font-weight: 700;
+  font-size: 2rem;
+}
+.input-groups {
+  border: none;
+  border-radius: 10px;
+}
+.card-contact-right {
+  background: rgb(0, 7, 61);
+  box-shadow: 10px 3px 33px 4px rgb(243, 240, 240);
+  border-radius: 20px;
+  width: 60%;
+  position: relative;
+  bottom: 10vh;
+  padding: 24px;
+}
+
+@media (max-width: 850px) {
+  .contact-me-card {
+    width: 90vw;
+  }
+  .card-contact-right {
+    width: 90%;
+    position: relative;
+    bottom: 12vh;
+    left: 4vw;
+  }
+}
